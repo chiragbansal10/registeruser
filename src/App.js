@@ -25,7 +25,7 @@ function App() {
     setIsAuthenticated(true);
 
     // Check if the user is an Admin based on some criteria
-    setIsAdmin(credentials.email === 'admin@example.com'); // Replace with your criteria
+    setIsAdmin(credentials?.email === 'admin@example.com'); // Replace with your criteria
 
     // Redirect the user to the dashboard or perform any other actions after login
     // For now, I'm logging to the console to show the credentials
@@ -52,15 +52,9 @@ function App() {
           </li>
         </ul>
       </nav>
-
-      {/* <Routes>
-        <Route path="/register" element={<Register  handleLogin={handleLogin}/>} />
-        <Route path="/login" element={<Login handleLogin={handleLogin}/>} />
-        <Route path="/dashboard" isAuthenticated={isAuthenticated} isAdmin={isAdmin}/>
-      </Routes> */}
       <Routes>
-  <Route path="/register" element={<Register handleLogin={handleLogin} />} />
-  <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+  <Route path="/register" element={<Register handleLogin={handleLogin}/>} />
+  <Route path="/login" element={<Login handleLogin={handleLogin}/>} />
   <Route
     path="/dashboard"
     element={<Dashboard isAuthenticated={isAuthenticated} isAdmin={isAdmin} />}

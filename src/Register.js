@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Register = (handleLogin) => {
+const Register = ({handleLogin}) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -171,12 +171,16 @@ const handleSubmit = (e) => {
 
       // Simulate successful registration
       console.log('User registered:', registeredUser);
+      localStorage.setItem('email', formData.email);
+      localStorage.setItem('password', formData.password);
+     // localStorage.getItem('myKey');
 
       // Trigger login after successful registration
       handleLogin({
         email: formData.email,
         password: formData.password,
       });
+      
     }
   };
 

@@ -33,10 +33,12 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    const email= localStorage.getItem('email');
+  const password=  localStorage.getItem('password');
+    
     if (validateForm()) {
       // Simulating authentication (replace with actual authentication logic)
-      const mockUser = { email: 'test@example.com', password: 'password' };
+      const mockUser = { email: email, password: password };
 
       if (
         formData.email === mockUser.email &&
@@ -44,6 +46,7 @@ const Login = () => {
       ) {
         // Successful login
         console.log('Login successful');
+        window.location.href = '/dashboard';
         setErrors({});
       } else {
         // Invalid credentials
